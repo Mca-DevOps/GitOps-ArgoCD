@@ -15,15 +15,3 @@ setup: ## Run ArgoCD with port forwarding at 8080
 	@echo "\nSetting up MongoDB Components...\n"
 	@kubectl port-forward svc/argocd-server 8080:443 -n argocd &
 	@open https://localhost:8080
-
-
-
-# destroy: ## Setup all k8s components
-# 	@echo "\nDeleting MongoDB Components...\n"
-# 	@kubectl delete -f mongo.yaml
-# 	@kubectl delete -f mongo-secret.yaml
-# 	@echo "\nDeleting MongoExpress Components...\n"
-# 	@kubectl delete -f mongo-ingress.yaml
-# 	@kubectl delete -f mongo-tls-secret.yaml
-# 	@kubectl delete -f mongo_express.yaml
-# 	@kubectl delete -f mongo_express-configMap.yaml
