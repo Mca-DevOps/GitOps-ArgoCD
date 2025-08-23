@@ -9,7 +9,7 @@ install-argocd: ## Install ArgoCD Agent in your K8S cluster. This will create a 
 	@echo "\nInstalling ArgoCD Agent...\n"
 	@kubectl create namespace argocd
 	@kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-	@echo "\n \n"
+	@echo "\n ArgoCD Agent added\n"
 
 setup: ## Run ArgoCD with port forwarding at 8080
 	@echo "\nSetting up MongoDB Components...\n"
