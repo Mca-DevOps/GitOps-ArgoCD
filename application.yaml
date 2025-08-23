@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: zahra-argo-application
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/adotri-frimpong/ArgoCd.git
+    targetRevision: HEAD
+    path: .
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: myapp
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true   # Allows ArgoCD to unapply any manual modification in the k8s cluster 
+      prune: true      # Allows ArgoCD to delete any deleted component described through manifests
